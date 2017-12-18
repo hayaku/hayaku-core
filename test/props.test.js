@@ -2,8 +2,8 @@ const Hayaku = require('./../');
 
 const checkProp = function(abbr, expected) {
   test(`${abbr} → ${expected}`, () => {
-    const props = Hayaku.expandProps(abbr);
-    expect(props[0] && props[0].name).toBe(expected);
+    const results = Hayaku.expandProps(abbr);
+    expect(results[0] && results[0].property).toBe(expected);
   });
 }
 
