@@ -1,0 +1,25 @@
+{
+  "name": "hayaku-core",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hayaku/hayaku-core.git"
+  },
+  "author": "Roman Komarov <kizu@kizu.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hayaku/hayaku-core/issues"
+  },
+  "homepage": "https://github.com/hayaku/hayaku-core#readme",
+  "dependencies": {
+    "package": "git://github.com/mdn/data.git#f9eb8c065c7f26b984bfb0b0599395c66a3bf09f"
+  },
+  "devDependencies": {
+    "jest": "^22.0.0"
+  }
+}
