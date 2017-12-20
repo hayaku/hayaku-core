@@ -30,5 +30,6 @@ describe('simple declarations test', () => {
   test('dn', () => expect('dn').expandTo('display: none'));
   test('bgn', () => expect('bgn').expandTo('background: none'));
   test('curp', () => expect('curp').expandTo('cursor: pointer'));
+  test('wa', () => expect('wa').expandTo('width: auto'));
 });
 
