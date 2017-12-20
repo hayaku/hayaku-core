@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "indent": ["warn", 2],
+    "semi": "warn",
+    "no-extra-parens": "warn",
+    "no-multi-spaces": "warn"
+  }
+}
