@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/hayaku/hayaku-core#readme",
   "dependencies": {
-    "package": "git://github.com/mdn/data.git#f9eb8c065c7f26b984bfb0b0599395c66a3bf09f"
+    "css-tree": "1.0.0-alpha.26"
   },
   "devDependencies": {
     "jest": "^22.0.0"

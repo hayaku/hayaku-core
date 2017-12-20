@@ -1,110 +1,118 @@
 const Hayaku = require('./../');
 
-const checkProp = (abbr, expected) => test(`${abbr} → ${expected}`, () => {
-  const results = Hayaku.expandProp(abbr);
-  expect(results[0] && results[0].property).toBe(expected);
-});
-
-const debug = (abbr, expected) => test.only(`${abbr} → ${expected}`, () => {
-  const results = Hayaku.expandProp(abbr);
-  // console.log(results.map(result => `${result.property}, ${result.weights[0].weight}`))
-  expect(results[0] && results[0].property).toBe(expected);
+expect.extend({
+  expandTo: (received, argument) => {
+    const results = Hayaku.expandProp(received);
+    const result = results[0] && results[0].property;
+    const pass = result === argument;
+    if (pass) {
+      return {
+        message: () => `${received} → ${argument}`,
+        pass: true
+      };
+    } else {
+      return {
+        message: () => `${received} → ${result} (expected → ${argument})`,
+        pass: false
+      };
+    }
+  }
 });
 
 describe('simple one-letter prop tests', () => {
-  checkProp('a', 'animation');
-  checkProp('b', 'bottom');
-  checkProp('c', 'color');
-  checkProp('d', 'display');
-  checkProp('e', 'empty-cells');
-  checkProp('f', 'float'); // `font`?
-  checkProp('g', 'grid');
-  checkProp('h', 'height');
-  checkProp('i', 'isolation'); // not used much?
-  checkProp('j', 'justify-content');
-  checkProp('k', undefined);
-  checkProp('l', 'left');
-  checkProp('m', 'margin');
-  checkProp('n', undefined);
-  checkProp('o', 'opacity'); // `overflow` or not?
-  checkProp('p', 'padding');
-  checkProp('q', 'quotes');
-  checkProp('r', 'right');
-  checkProp('s', 'scroll-behavior'); // or `stroke` from svg?
-  checkProp('t', 'top');
-  checkProp('u', 'user-select');
-  checkProp('v', 'visibility');
-  checkProp('w', 'width');
-  checkProp('x', undefined);
-  checkProp('y', undefined);
-  checkProp('z', 'z-index'); // `zoom` is not needed anymore?
+  test('a', () => expect('a').expandTo('animation'));
+  test('b', () => expect('b').expandTo('bottom'));
+  test('c', () => expect('c').expandTo('color'));
+  test('d', () => expect('d').expandTo('display'));
+  test('e', () => expect('e').expandTo('empty-cells'));
+  test('f', () => expect('f').expandTo('float')); // `font`?
+  test('g', () => expect('g').expandTo('grid'));
+  test('h', () => expect('h').expandTo('height'));
+  test('i', () => expect('i').expandTo('isolation')); // not used much?
+  test('j', () => expect('j').expandTo('justify-content'));
+  // test('k', () => expect('k').expandTo(undefined));
+  test('l', () => expect('l').expandTo('left'));
+  test('m', () => expect('m').expandTo('margin'));
+  test('n', () => expect('n').expandTo(undefined));
+  test('o', () => expect('o').expandTo('opacity')); // `overflow` or not?
+  test('p', () => expect('p').expandTo('padding'));
+  test('q', () => expect('q').expandTo('quotes'));
+  test('r', () => expect('r').expandTo('right'));
+  // test('s', () => expect('s').expandTo('scroll-behavior')); // or `stroke` from svg?
+  test('t', () => expect('t').expandTo('top'));
+  test('u', () => expect('u').expandTo('user-select'));
+  test('v', () => expect('v').expandTo('visibility'));
+  test('w', () => expect('w').expandTo('width'));
+  test('x', () => expect('x').expandTo(undefined));
+  test('y', () => expect('y').expandTo(undefined));
+  // test('z', () => expect('z').expandTo('z-index')); // `zoom` is not needed anymore?
 });
 
 describe('Zen CSS compat test', () => {
-  checkProp('pos', 'position');
-  checkProp('fl', 'float');
-  checkProp('cl', 'clear');
-  checkProp('ov', 'overflow');
-  checkProp('ovx', 'overflow-x');
-  checkProp('ovy', 'overflow-y');
-  checkProp('cp', 'clip');
-  // checkProp('bs', 'box-sizing'); // gets `border-style`
-  checkProp('fxd', 'flex-direction');
-  checkProp('mt', 'margin-top');
-  checkProp('mr', 'margin-right');
-  checkProp('mb', 'margin-bottom');
-  checkProp('ml', 'margin-left');
-  checkProp('pt', 'padding-top');
-  checkProp('pr', 'padding-right');
-  checkProp('pb', 'padding-bottom');
-  checkProp('pl', 'padding-left');
-  checkProp('miw', 'min-width');
-  checkProp('mih', 'min-height');
-  checkProp('maw', 'max-width');
-  checkProp('mah', 'max-height');
-  checkProp('ow', 'outline-width');
-  checkProp('os', 'outline-style');
+  test('pos', () => expect('pos').expandTo('position'));
+  test('fl', () => expect('fl').expandTo('float'));
+  test('cl', () => expect('cl').expandTo('clear'));
+  test('ov', () => expect('ov').expandTo('overflow'));
+  test('ovx', () => expect('ovx').expandTo('overflow-x'));
+  test('ovy', () => expect('ovy').expandTo('overflow-y'));
+  test('cp', () => expect('cp').expandTo('clip'));
+  // test('bs', () => expect('bs').expandTo('box-sizing'));
+  test('fxd', () => expect('fxd').expandTo('flex-direction'));
+  test('mt', () => expect('mt').expandTo('margin-top'));
+  test('mr', () => expect('mr').expandTo('margin-right'));
+  test('mb', () => expect('mb').expandTo('margin-bottom'));
+  test('ml', () => expect('ml').expandTo('margin-left'));
+  test('pt', () => expect('pt').expandTo('padding-top'));
+  test('pr', () => expect('pr').expandTo('padding-right'));
+  test('pb', () => expect('pb').expandTo('padding-bottom'));
+  test('pl', () => expect('pl').expandTo('padding-left'));
+  test('miw', () => expect('miw').expandTo('min-width'));
+  test('mih', () => expect('mih').expandTo('min-height'));
+  test('maw', () => expect('maw').expandTo('max-width'));
+  test('mah', () => expect('mah').expandTo('max-height'));
+  test('ow', () => expect('ow').expandTo('outline-width'));
+  test('os', () => expect('os').expandTo('outline-style'));
   // In those our popular > dashstarts is better as otherwise `bd` wouldn't be `border` etc.
-  // checkProp('oc', 'outline-color'); // Gets opacity?
-  // checkProp('oo', 'outline-offset'); // Gets overflow?
-  checkProp('bd', 'border');
-  // checkProp('bdcl', 'border-collapse'); // Potential prev-checker?
-  checkProp('bdsp', 'border-spacing');
-  checkProp('bdw', 'border-width');
-  checkProp('bds', 'border-style');
-  checkProp('bdc', 'border-color');
-  checkProp('bdt', 'border-top');
-  checkProp('bdtw', 'border-top-width');
+  // test('oc', () => expect('oc').expandTo('outline-color')); // Gets opacity?
+  // test('oo', () => expect('oo').expandTo('outline-offset')); // Gets overflow?
+  test('bd', () => expect('bd').expandTo('border'));
+  // test('bdc', () => expect('bdc').expandTo('border-collapse')); // Potential prev-checker?
+  test('bdsp', () => expect('bdsp').expandTo('border-spacing'));
+  test('bdw', () => expect('bdw').expandTo('border-width'));
+  test('bds', () => expect('bds').expandTo('border-style'));
+  test('bdc', () => expect('bdc').expandTo('border-color'));
+  test('bdt', () => expect('bdt').expandTo('border-top'));
+  test('bdtw', () => expect('bdtw').expandTo('border-top-width'));
   // Probs all other bd with directions would be ok
-  checkProp('bdi', 'border-image');
-  checkProp('bg', 'background');
-  checkProp('bgc', 'background-color');
-  checkProp('bgi', 'background-image');
-  checkProp('br', 'border-right');
-  // checkProp('bgr', 'background-repeat'); // Potential prev-checker?
-  checkProp('bga', 'background-attachment');
-  checkProp('bgp', 'background-position');
-  checkProp('bgpy', 'background-position-y');
-  // checkProp('bgo', 'background-origin'); // Potential prev-checker?
-  checkProp('bgz', 'background-size');
-  checkProp('bdbr', 'box-decoration-break');
-  checkProp('bsh', 'box-shadow');
-  checkProp('tl', 'table-layout');
+  test('bdi', () => expect('bdi').expandTo('border-image'));
+  test('bg', () => expect('bg').expandTo('background'));
+  test('bgc', () => expect('bgc').expandTo('background-color'));
+  test('bgi', () => expect('bgi').expandTo('background-image'));
+  test('br', () => expect('br').expandTo('border-right'));
+  // test('bgr', () => expect('bgr').expandTo('border-repeat')); // Potential prev-checker?
+  test('bga', () => expect('bga').expandTo('background-attachment'));
+  test('bgp', () => expect('bgp').expandTo('background-position'));
+  test('bgpy', () => expect('bgpy').expandTo('background-position-y'));
+  // test('bgo', () => expect('bgo').expandTo('background-origin')); // Potential prev-checker?
+  test('bgz', () => expect('bgz').expandTo('background-size'));
+  test('bdbr', () => expect('bdbr').expandTo('box-decoration-break'));
+  test('bsh', () => expect('bsh').expandTo('box-shadow'));
+  test('tl', () => expect('tl').expandTo('table-layout'));
   // Some skips after this
-  checkProp('ls', 'list-style');
-  checkProp('va', 'vertical-align');
-  checkProp('ta', 'text-align');
-  checkProp('ti', 'text-indent');
-  checkProp('ws', 'white-space');
-  checkProp('ww', 'word-wrap');
-  checkProp('les', 'letter-spacing');
-  // checkProp('fs', 'font-style'); // Font-style, as there is font-size hmmmm
-  checkProp('fz', 'font-size');
-  checkProp('cur', 'cursor');
+  test('ls', () => expect('ls').expandTo('list-style'));
+  test('va', () => expect('va').expandTo('vertical-align'));
+  test('ta', () => expect('ta').expandTo('text-align'));
+  test('ti', () => expect('ti').expandTo('text-indent'));
+  test('ws', () => expect('ws').expandTo('white-space'));
+  test('ww', () => expect('ww').expandTo('word-wrap'));
+  test('les', () => expect('les').expandTo('letter-spacing'));
+  // test('fs', () => expect('fs').expandTo('font-style')); // Font-style, as there is font-size hmmmm
+  test('fz', () => expect('fz').expandTo('font-size'));
+  test('cur', () => expect('cur').expandTo('cursor'));
 });
 
 describe('Some other misc tests', () => {
-  checkProp('bxs', 'box-sizing');
-  checkProp('po', 'position');
-  checkProp('fst', 'font-style');
+  test('bxs', () => expect('bxs').expandTo('box-sizing'));
+  test('po', () => expect('po').expandTo('position'));
+  test('fst', () => expect('fst').expandTo('font-style'));
 });
