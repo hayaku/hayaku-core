@@ -11,6 +11,7 @@ expect.extend({
         pass: true
       };
     } else {
+      // console.log(results.map(result => `${result.property}:${result.value}, ${result.weights.filter(weight => weight.weight !== 0).map(weight => `${weight.name}:${weight.weight}`)}`));
       return {
         message: () => `${received} → ${result} (expected → ${argument})`,
         pass: false
@@ -35,3 +36,16 @@ describe('simple declarations test', () => {
   test('bsbb', () => expect('bsbb').expandTo('box-sizing: border-box'));
 });
 
+describe('some suddenly complex declarations test', () => {
+  test('fs', () => expect('fs').expandTo('font-size: undefined'));
+  test('fz', () => expect('fz').expandTo('font-size: undefined'));
+  test('fv', () => expect('fv').expandTo('font-variant: undefined'));
+  test('fv', () => expect('fv').expandTo('font-variant: undefined'));
+  test('ti', () => expect('ti').expandTo('text-indent: undefined'));
+  test('lh', () => expect('lh').expandTo('line-height: undefined'));
+  test('orp', () => expect('orp').expandTo('orphans: undefined'));
+  test('rz', () => expect('rz').expandTo('resize: undefined'));
+  test('cur', () => expect('cur').expandTo('cursor: undefined'));
+  test('op', () => expect('op').expandTo('opacity: undefined'));
+  test('fst', () => expect('fst').expandTo('font-style: undefined'));
+});
