@@ -17,7 +17,7 @@ expect.extend({
       };
     }
   }
-})
+});
 
 describe('simple declarations test', () => {
   test('pos:', () => expect('pos:').expandTo('position: undefined'));
@@ -25,11 +25,13 @@ describe('simple declarations test', () => {
   test('poa', () => expect('poa').expandTo('position: absolute'));
   test('por', () => expect('por').expandTo('position: relative'));
   test('fl', () => expect('fl').expandTo('float: left'));
+  test('fr', () => expect('fr').expandTo('float: right'));
   test('f', () => expect('float').expandTo('float: undefined'));
   test('f:l', () => expect('f:l').expandTo('float: left'));
   test('dn', () => expect('dn').expandTo('display: none'));
   test('bgn', () => expect('bgn').expandTo('background: none'));
   test('curp', () => expect('curp').expandTo('cursor: pointer'));
   test('wa', () => expect('wa').expandTo('width: auto'));
+  test('bsbb', () => expect('bsbb').expandTo('box-sizing: border-box'));
 });
 
