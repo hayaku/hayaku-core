@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should properly split \`f:l\` abbr 1`] = `
+Array [
+  Object {
+    "prop": "f",
+    "raw": "f:l",
+    "val": "l",
+  },
+]
+`;
+
+exports[`should properly split \`p:5:5:5\` abbr 1`] = `
+Array [
+  Object {
+    "prop": "p",
+    "raw": "p:5:5:5",
+    "val": "5:5:5",
+  },
+]
+`;
+
+exports[`should properly split \`p\` abbr 1`] = `
+Array [
+  Object {
+    "prop": "p",
+    "raw": "p",
+    "val": "",
+  },
+]
+`;
+
+exports[`should properly split \`p5:5\` abbr 1`] = `
+Array [
+  Object {
+    "prop": "p",
+    "raw": "p5:5",
+    "val": "5:5",
+  },
+]
+`;
+
+exports[`should properly split \`poa:\` abbr 1`] = `
+Array [
+  Object {
+    "prop": "poa",
+    "raw": "poa:",
+    "val": "",
+  },
+]
+`;
+
+exports[`should properly split \`poa:\` abbr 2`] = `
+Array [
+  Object {
+    "prop": "poa",
+    "raw": "poa:",
+    "val": "",
+  },
+]
+`;
+
+exports[`should properly split \`w20\` abbr 1`] = `
+Array [
+  Object {
+    "prop": "w",
+    "raw": "w20",
+    "val": "20",
+  },
+]
+`;
