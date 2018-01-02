@@ -49,3 +49,12 @@ describe('some suddenly complex declarations test', () => {
   test('op', () => expect('op').expandTo('opacity: undefined'));
   test('fst', () => expect('fst').expandTo('font-style: undefined'));
 });
+
+describe('declarations with numeric values', () => {
+  test('w10', () => expect('w10').expandTo('width: 10px'));
+  test('w1.5', () => expect('w1.5').expandTo('width: 1.5em'));
+  test('w25%', () => expect('w25%').expandTo('width: 25%'));
+  test('w50p', () => expect('w50p').expandTo('width: 50%'));
+  test('w20px', () => expect('w20px').expandTo('width: 20px'));
+  test('w20e', () => expect('w20e').expandTo('width: 20em'));
+});
