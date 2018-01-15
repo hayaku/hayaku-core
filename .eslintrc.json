@@ -14,7 +14,7 @@
   },
   "extends": "eslint:recommended",
   "rules": {
-    "indent": ["warn", 2],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
     "semi": "warn",
     "no-extra-parens": "warn",
     "no-multi-spaces": "warn"
