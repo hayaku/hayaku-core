@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`declarations with numeric values: w1.5 1`] = `"width: 1.5em"`;
+
+exports[`declarations with numeric values: w10 1`] = `"width: 10px"`;
+
+exports[`declarations with numeric values: w20e 1`] = `"width: 20em"`;
+
+exports[`declarations with numeric values: w20px 1`] = `"width: 20px"`;
+
+exports[`declarations with numeric values: w25% 1`] = `"width: 25%"`;
+
+exports[`declarations with numeric values: w50p 1`] = `"width: 50%"`;
+
+exports[`simple declarations test: bgn 1`] = `"background: none"`;
+
+exports[`simple declarations test: bsbb 1`] = `"box-sizing: border-box"`;
+
+exports[`simple declarations test: curp 1`] = `"cursor: pointer"`;
+
+exports[`simple declarations test: dn 1`] = `"display: none"`;
+
+exports[`simple declarations test: f 1`] = `"float: undefined"`;
+
+exports[`simple declarations test: f:l 1`] = `"float: left"`;
+
+exports[`simple declarations test: fl 1`] = `"float: left"`;
+
+exports[`simple declarations test: fr 1`] = `"float: right"`;
+
+exports[`simple declarations test: poa 1`] = `"position: absolute"`;
+
+exports[`simple declarations test: por 1`] = `"position: relative"`;
+
+exports[`simple declarations test: pos 1`] = `"position: static"`;
+
+exports[`simple declarations test: pos: 1`] = `"position: undefined"`;
+
+exports[`simple declarations test: wa 1`] = `"width: auto"`;
+
+exports[`some suddenly complex declarations test: cur 1`] = `"cursor: undefined"`;
+
+exports[`some suddenly complex declarations test: fs 1`] = `"font-size: undefined"`;
+
+exports[`some suddenly complex declarations test: fst 1`] = `"font-style: undefined"`;
+
+exports[`some suddenly complex declarations test: fv 1`] = `"font-variant: undefined"`;
+
+exports[`some suddenly complex declarations test: fv 2`] = `"font-variant: undefined"`;
+
+exports[`some suddenly complex declarations test: fz 1`] = `"font-size: undefined"`;
+
+exports[`some suddenly complex declarations test: lh 1`] = `"line-height: undefined"`;
+
+exports[`some suddenly complex declarations test: op 1`] = `"opacity: undefined"`;
+
+exports[`some suddenly complex declarations test: orp 1`] = `"orphans: undefined"`;
+
+exports[`some suddenly complex declarations test: rz 1`] = `"resize: undefined"`;
+
+exports[`some suddenly complex declarations test: ti 1`] = `"text-indent: undefined"`;
