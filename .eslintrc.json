@@ -17,6 +17,7 @@
     "indent": ["warn", 2, { "SwitchCase": 1 }],
     "semi": "warn",
     "no-extra-parens": "warn",
-    "no-multi-spaces": "warn"
+    "no-multi-spaces": "warn",
+    "max-len": ["warn", { "ignoreTemplateLiterals": true, "ignoreComments": true }]
   }
 }

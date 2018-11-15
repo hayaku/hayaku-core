@@ -11,6 +11,8 @@ const test = require('./createTester.js')(abbr => getAbbrSplits(abbr));
 test('p', result => expect(result).toMatchSnapshot());
 ```
 
+Note that you can use both `toMatchSnapshot()` and `toMatchInlineSnapshot()` there.
+
 At first we import everything that would be needed for our test, then we require a custom `createTester` function and pass our test inside of it, then we can use this tester instead of the jest's built-in `test`.
 
 All of this is done in order to
