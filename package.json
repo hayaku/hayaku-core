@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/hayaku/hayaku-core#readme",
   "dependencies": {
-    "css-tree": "1.0.0-alpha.27"
+    "css-tree": "1.0.0-alpha.29"
   },
   "devDependencies": {
-    "eslint": "^4.13.1",
-    "jest": "^22.0.0"
+    "eslint": "^5.9.0",
+    "jest": "^23.6.0"
   }
 }

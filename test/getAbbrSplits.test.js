@@ -1,14 +1,9 @@
-// Proxy for jest test to write abbr only once, ok
-const test = (desc, func) => it(desc, () => func(desc));
-test.only = (desc, func) => it.only(desc, () => func(desc));
-test.skip = (desc, func) => it.skip(desc, () => func(desc));
-
 const getAbbrSplits = require('./../lib/getAbbrSplits.js');
-const toMatchSnapshot = abbr => expect(getAbbrSplits(abbr)).toMatchSnapshot();
+const test = require('./createTester.js')(abbr => getAbbrSplits(abbr));
 
-test('p', toMatchSnapshot);
-test('w20', toMatchSnapshot);
-test('poa:', toMatchSnapshot);
-test('p5:5', toMatchSnapshot);
-test('p:5:5:5', toMatchSnapshot);
-test('f:l', toMatchSnapshot);
+test('p', result => expect(result).toMatchSnapshot());
+test('w20', result => expect(result).toMatchSnapshot());
+test('poa:', result => expect(result).toMatchSnapshot());
+test('p5:5', result => expect(result).toMatchSnapshot());
+test('p:5:5:5', result => expect(result).toMatchSnapshot());
+test('f:l', result => expect(result).toMatchSnapshot());
